@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
 
 export default function About() {
