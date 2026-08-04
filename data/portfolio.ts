@@ -7,12 +7,12 @@ export const portfolioData = {
       "Bridging biomedical science, AI and software engineering to build intelligent, real-world solutions.",
     about:
       "Biomedical Engineering graduate from CUET and Software Engineer with 1+ years of experience building robust web applications, RESTful APIs, and e-governance platforms using Laravel, Django, and React.",
-    email: "jahid@example.com",
+    email: "jahidhasan5803733@gmail.com",
     phone: "+8801740578486",
-    location: "Bangladesh",
+    location: "Dhaka, Bangladesh",
     resume: "/resume.pdf",
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
+    github: "https://github.com/jahid-cuet",
+    linkedin: "https://www.linkedin.com/in/md-jahid-hasan-041151265/",
   },
   experience: [
     {
@@ -46,7 +46,15 @@ export const portfolioData = {
         "Contributed to research-oriented data workflows and experimentation support.",
         "Applied analytical thinking to help shape model and data exploration efforts.",
       ],
-      tech: ["Python", "Pandas", "NumPy", "PyTorch", "Matplotlib", "Seaborn", "SciPy"],
+      tech: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "PyTorch",
+        "Matplotlib",
+        "Seaborn",
+        "SciPy",
+      ],
     },
     {
       company: "The Tork Inc.",

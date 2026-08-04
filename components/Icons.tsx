@@ -45,6 +45,15 @@ export function MailIcon({ size = 20, className = "" }: IconProps) {
   );
 }
 
+export function SendIcon({ size = 18, className = "" }: IconProps) {
+  return (
+    <svg {...baseProps(size, className)}>
+      <path d="m22 2-7 20-4-9-9-4Z" />
+      <path d="M22 2 11 13" />
+    </svg>
+  );
+}
+
 export function GithubIcon({ size = 20, className = "" }: IconProps) {
   return (
     <svg {...baseProps(size, className)}>

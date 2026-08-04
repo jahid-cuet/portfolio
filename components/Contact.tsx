@@ -1,21 +1,25 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { ArrowUpRightIcon, MailIcon } from "./Icons";
+import { ExternalLinkIcon, GithubIcon, LinkedinIcon, MailIcon, SendIcon } from "./Icons";
 
 const details = [
   { label: "Email", value: portfolioData.personal.email, href: `mailto:${portfolioData.personal.email}` },
-  { label: "Phone", value: portfolioData.personal.phone, href: `tel:${portfolioData.personal.phone}` },
-  { label: "GitHub", value: "GitHub Profile", href: portfolioData.personal.github },
-  { label: "LinkedIn", value: "LinkedIn Profile", href: portfolioData.personal.linkedin },
   { label: "Location", value: portfolioData.personal.location },
 ];
 
 function Field({
   label,
   placeholder,
+  value,
+  onChange,
   multiline = false,
 }: {
   label: string;
   placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
   multiline?: boolean;
 }) {
   const baseClass =
@@ -25,15 +29,65 @@ function Field({
     <label className="block space-y-3">
       <span className="text-sm font-medium theme-text">{label}</span>
       {multiline ? (
-        <textarea className={`${baseClass} min-h-[180px] resize-y`} placeholder={placeholder} />
+        <textarea
+          className={`${baseClass} min-h-[120px] resize-y`}
+          placeholder={placeholder}
+          value={value}
+          required
+          onChange={(event) => onChange(event.target.value)}
+        />
       ) : (
-        <input className={baseClass} placeholder={placeholder} />
+        <input
+          type={label === "Email" ? "email" : "text"}
+          className={baseClass}
+          placeholder={placeholder}
+          value={value}
+          required
+          onChange={(event) => onChange(event.target.value)}
+        />
       )}
     </label>
   );
 }
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSending(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "The message could not be sent.");
+      }
+
+      setStatus({ type: "success", text: "Message sent successfully. Thank you!" });
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      setStatus({
+        type: "error",
+        text: error instanceof Error ? error.message : "The message could not be sent.",
+      });
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <section id="contact" className="border-t theme-border px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl space-y-12">
@@ -49,28 +103,43 @@ export default function Contact() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
-          <div className="theme-panel rounded-[2rem] p-6 md:p-10">
-            <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-light tracking-tight theme-text">
-                Get In Touch
-              </h3>
+          <div className="theme-panel rounded-2xl p-6 md:p-8">
+            <div className="mb-7">
+              <h3 className="text-2xl font-medium tracking-tight theme-text">Get In Touch</h3>
             </div>
 
-            <div className="grid gap-5">
-              <Field label="Your Name" placeholder="Your Name" />
-              <Field label="Your Email" placeholder="Your Email" />
-              <Field label="Your Phone" placeholder="Your Phone" />
-              <Field label="Write a Message" placeholder="Write a Message" multiline />
-            </div>
+            <form className="grid gap-6" onSubmit={handleSubmit}>
+              <Field label="Name" placeholder="Your name" value={name} onChange={setName} />
+              <Field
+                label="Email"
+                placeholder="your.email@example.com"
+                value={email}
+                onChange={setEmail}
+              />
+              <Field
+                label="Message"
+                placeholder="How can I help you?"
+                value={message}
+                onChange={setMessage}
+                multiline
+              />
 
-            <div className="mt-8">
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-7 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-foreground)] transition-all hover:opacity-90"
+              <div className="mt-0">
+                <button
+                  type="submit"
+                  disabled={isSending}
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[color:var(--accent)] px-6 py-3 text-sm font-semibold text-[color:var(--accent-foreground)] shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--accent)] disabled:cursor-wait disabled:opacity-70"
+                >
+                  {isSending ? "Sending..." : "Send Message"} {!isSending && <SendIcon size={17} />}
+                </button>
+              </div>
+              <p
+                aria-live="polite"
+                className={`text-sm ${status?.type === "success" ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
               >
-                Send Message <ArrowUpRightIcon size={18} />
-              </button>
-            </div>
+                {status?.text}
+              </p>
+            </form>
           </div>
 
           <aside className="theme-panel rounded-[2rem] p-6 md:p-10">
@@ -98,6 +167,49 @@ export default function Contact() {
                   )}
                 </div>
               ))}
+            </div>
+
+            <div className="mt-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] theme-text">
+                Find Me Online
+              </p>
+              <div className="mt-4 grid gap-4">
+                <a
+                  href={portfolioData.personal.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-[1.5rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-4 transition-all hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:shadow-lg hover:shadow-black/5"
+                >
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--accent-soft)] text-[color:var(--accent)] transition-transform group-hover:scale-105">
+                    <GithubIcon size={20} />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="font-medium theme-text">GitHub</p>
+                      <ExternalLinkIcon size={14} className="opacity-60" />
+                    </div>
+                    <p className="truncate text-sm theme-muted">github.com/jahid-cuet</p>
+                  </div>
+                </a>
+
+                <a
+                  href={portfolioData.personal.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-[1.5rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-4 transition-all hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:shadow-lg hover:shadow-black/5"
+                >
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--accent-soft)] text-[color:var(--accent)] transition-transform group-hover:scale-105">
+                    <LinkedinIcon size={20} />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="font-medium theme-text">LinkedIn</p>
+                      <ExternalLinkIcon size={14} className="opacity-60" />
+                    </div>
+                    <p className="truncate text-sm theme-muted">Connect professionally</p>
+                  </div>
+                </a>
+              </div>
             </div>
 
             <div className="mt-10 rounded-[1.5rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-6">
