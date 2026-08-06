@@ -89,7 +89,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="border-t theme-border px-6 py-20 md:py-28">
+    <section id="contact" className="border-t theme-border px-4 sm:px-6 py-16 sm:py-20 md:py-28">
       <div className="mx-auto max-w-6xl space-y-12">
         <div className="text-center">
           <div className="mx-auto mb-4 h-1 w-14 rounded-full bg-[color:var(--accent)]" />

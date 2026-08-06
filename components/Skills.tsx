@@ -5,7 +5,7 @@ export default function Skills() {
   const skillGroups = portfolioData.skills;
 
   return (
-    <section id="skills" className="px-6 py-20 md:py-28 border-t theme-border">
+    <section id="skills" className="px-4 sm:px-6 py-16 sm:py-20 md:py-28 border-t theme-border">
       <div className="mx-auto max-w-6xl space-y-12">
         <div className="max-w-2xl">
           <div className="mb-4 h-1 w-14 rounded-full bg-[color:var(--accent)]" />

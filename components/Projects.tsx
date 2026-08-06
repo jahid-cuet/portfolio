@@ -4,7 +4,7 @@ import { ExternalLinkIcon, GithubIcon } from "./Icons";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 border-t theme-border">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 border-t theme-border">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
