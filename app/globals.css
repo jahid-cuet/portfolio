@@ -117,3 +117,14 @@ body {
     transform: translateY(0) scale(1);
   }
 }
+
+@keyframes ecgScroll {
+  from { transform: translateX(-160px); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
