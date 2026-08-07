@@ -55,14 +55,14 @@ function UnifiedAIHealthBackground() {
 ──────────────────────────────────────────────── */
 function SideNeuralNetwork() {
   const nodes = [
-    {x: 30, y: 50}, {x: 30, y: 120}, {x: 30, y: 190},
-    {x: 100, y: 30}, {x: 100, y: 90}, {x: 100, y: 150}, {x: 100, y: 210},
-    {x: 170, y: 80}, {x: 170, y: 160}
+    { x: 30, y: 50 }, { x: 30, y: 120 }, { x: 30, y: 190 },
+    { x: 100, y: 30 }, { x: 100, y: 90 }, { x: 100, y: 150 }, { x: 100, y: 210 },
+    { x: 170, y: 80 }, { x: 170, y: 160 }
   ];
 
   const connections: number[][] = [];
-  for(let i=0; i<3; i++) for(let j=3; j<7; j++) connections.push([i, j]);
-  for(let i=3; i<7; i++) for(let j=7; j<9; j++) connections.push([i, j]);
+  for (let i = 0; i < 3; i++) for (let j = 3; j < 7; j++) connections.push([i, j]);
+  for (let i = 3; i < 7; i++) for (let j = 7; j < 9; j++) connections.push([i, j]);
 
   return (
     <div className="absolute left-[-20px] md:left-[10px] lg:left-[40px] xl:left-[80px] top-[15%] md:top-[25%] hidden sm:block pointer-events-none opacity-80 z-0">
@@ -77,15 +77,15 @@ function SideNeuralNetwork() {
           </filter>
         </defs>
         <g stroke="#34d399" strokeWidth="1" strokeOpacity="0.4">
-          {connections.map(([a,b], i) => (
+          {connections.map(([a, b], i) => (
             <line key={`nn-conn-${i}`} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}>
-               <animate attributeName="stroke-opacity" values="0.1;0.8;0.1" dur={`${1.5 + (i%3)}s`} begin={`${i*0.1}s`} repeatCount="indefinite" />
+              <animate attributeName="stroke-opacity" values="0.1;0.8;0.1" dur={`${1.5 + (i % 3)}s`} begin={`${i * 0.1}s`} repeatCount="indefinite" />
             </line>
           ))}
         </g>
         {nodes.map((n, i) => (
           <circle key={`nn-node-${i}`} cx={n.x} cy={n.y} r="5" fill="#06b6d4" filter="url(#glowNN)">
-            <animate attributeName="r" values="4;7;4" dur={`${1.5 + (i%2)}s`} begin={`${i*0.2}s`} repeatCount="indefinite" />
+            <animate attributeName="r" values="4;7;4" dur={`${1.5 + (i % 2)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
           </circle>
         ))}
       </svg>
@@ -120,42 +120,42 @@ function SideDataFlow() {
             rightNodes.map((target, tIdx) => {
               const dx = (target.x - origin.x) * 0.5;
               const pathD = `M ${origin.x} ${origin.y} C ${origin.x + dx} ${origin.y}, ${target.x - dx} ${target.y}, ${target.x} ${target.y}`;
-              
-              if ((oIdx === 0 && tIdx > 13) || (oIdx === 2 && tIdx < 8) || (oIdx === 1 && (tIdx < 3 || tIdx > 18))) return null; 
-              
+
+              if ((oIdx === 0 && tIdx > 13) || (oIdx === 2 && tIdx < 8) || (oIdx === 1 && (tIdx < 3 || tIdx > 18))) return null;
+
               const isPrimary = ((oIdx + tIdx) % 3 === 0);
-              
+
               return (
-                <path 
-                  key={`flow-${oIdx}-${tIdx}`} 
-                  d={pathD} 
+                <path
+                  key={`flow-${oIdx}-${tIdx}`}
+                  d={pathD}
                   stroke={origin.color}
                   strokeOpacity={isPrimary ? 0.6 : 0.15}
                 >
-                  <animate 
-                    attributeName="stroke-opacity" 
-                    values={isPrimary ? "0.2;0.8;0.2" : "0.05;0.3;0.05"} 
+                  <animate
+                    attributeName="stroke-opacity"
+                    values={isPrimary ? "0.2;0.8;0.2" : "0.05;0.3;0.05"}
                     dur={`${2 + (tIdx % 4)}s`}
-                    begin={`${(tIdx % 3) * 0.3}s`} 
-                    repeatCount="indefinite" 
+                    begin={`${(tIdx % 3) * 0.3}s`}
+                    repeatCount="indefinite"
                   />
                 </path>
               );
             })
           ))}
         </g>
-        
+
         {/* Draw Right Nodes (Binary column) */}
         {rightNodes.map((n, i) => {
           const char = (i % 2 === 0) ? "1" : "0";
           const color = i % 3 === 0 ? "#06b6d4" : i % 2 === 0 ? "#ec4899" : "#eab308";
           return (
-            <text 
-              key={`bin-${i}`} 
-              x={n.x} 
-              y={n.y + 3} 
-              fontSize="10" 
-              fontFamily="monospace" 
+            <text
+              key={`bin-${i}`}
+              x={n.x}
+              y={n.y + 3}
+              fontSize="10"
+              fontFamily="monospace"
               fontWeight="bold"
               fill={color}
               opacity="0.8"
@@ -165,7 +165,7 @@ function SideDataFlow() {
             </text>
           );
         })}
-        
+
         {/* Draw Origin Nodes & Binary Input */}
         {origins.map((origin, i) => (
           <g key={`org-${i}`}>
@@ -173,7 +173,7 @@ function SideDataFlow() {
               {origin.bin}
             </text>
             <circle cx={origin.x} cy={origin.y} r="5" fill={origin.color} filter="url(#glowFlow)">
-               <animate attributeName="r" values="4;7;4" dur={`${1.5 + i*0.5}s`} repeatCount="indefinite" />
+              <animate attributeName="r" values="4;7;4" dur={`${1.5 + i * 0.5}s`} repeatCount="indefinite" />
             </circle>
             <circle cx={origin.x} cy={origin.y} r="2" fill="#ffffff" />
           </g>
@@ -266,7 +266,7 @@ export default function HomeSection() {
 
       {/* Left Side: Neural Network */}
       <SideNeuralNetwork />
-      
+
       {/* Right Side: Data Flow */}
       <SideDataFlow />
 
@@ -283,11 +283,11 @@ export default function HomeSection() {
             </span>
             <span className="text-[#34d399] opacity-60">·</span>
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#34d399] font-semibold">
-              Biomedical Engineer
+              BME Graduate
             </span>
             <span className="text-[#34d399] opacity-60">·</span>
             <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#34d399] font-semibold">
-              AI / ML Enthusiast
+              AI/ML Researcher
             </span>
           </div>
 

@@ -94,11 +94,10 @@ export default function Contact() {
         <div className="text-center">
           <div className="mx-auto mb-4 h-1 w-14 rounded-full bg-[color:var(--accent)]" />
           <h2 className="text-4xl md:text-5xl font-light tracking-tight theme-text">
-            Wanna <span className="font-semibold">Start Work</span> With Me?
+            Let's <span className="font-semibold">Connect</span> & Collaborate
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg leading-8 theme-muted">
-            If you have a project, role, or collaboration in mind, send a message and I’ll
-            get back to you as soon as I can.
+          <p className="mx-auto mt-4 max-w-5xl text-base leading-relaxed theme-muted">
+            Explore my latest work and connect with me on LinkedIn and GitHub. Whether you have a project in mind, need technical guidance, or are a student or friend looking for advice — feel free to reach out via email. I'll always try my best to help whenever I have the time!
           </p>
         </div>
 
