@@ -71,11 +71,40 @@ export const portfolioData = {
   ],
   education: [
     {
-      institution: "Your University / Institute",
-      degree: "B.Sc. in Computer Science and Engineering",
-      period: "2018 - 2022",
+      institution: "Chittagong University of Engineering & Technology",
+      shortName: "CUET",
+      logo: "/cuet-logo.png",
+      degree: "Bachelor of Science (BS), Biomedical Engineering",
+      period: "Mar 2020 – Jun 2025",
+      grade: "CGPA 3.57",
+      activities: "Participated in multiple coding competitions | Active member of the university football team",
+      skills: ["MATLAB", "Python", "Signal Processing"],
       description:
-        "Focused on software engineering fundamentals, algorithms, databases, and modern application development.",
+        "University has been the most important experience for me. CUET provided a rigorous academic environment where challenging projects taught me to remain resilient and dedicated, even in the face of obstacles.",
+    },
+    {
+      institution: "Milestone College",
+      shortName: "Milestone",
+      logo: "/milestone.png",
+      degree: "Higher Secondary Certificate (HSC), Science",
+      period: "2017 – 2019",
+      grade: "GPA 5.00",
+      activities: "",
+      skills: [],
+      description:
+        "Completed Higher Secondary education with a perfect GPA of 5.00, building a strong foundation in science and mathematics.",
+    },
+    {
+      institution: "Bancharampur S M Pilot Model Govt. High School",
+      shortName: "BSM Pilot",
+      logo: "/school.jpg",
+      degree: "Secondary School Certificate (SSC), Science",
+      period: "2012 – 2017",
+      grade: "GPA 5.00",
+      activities: "",
+      skills: [],
+      description:
+        "Completed secondary education at one of the region's reputed government high schools, laying the groundwork for a strong academic journey.",
     },
   ],
   projects: [
