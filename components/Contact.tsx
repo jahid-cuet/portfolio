@@ -187,7 +187,6 @@ export default function Contact() {
                       <p className="font-medium theme-text">GitHub</p>
                       <ExternalLinkIcon size={14} className="opacity-60" />
                     </div>
-                    <p className="truncate text-sm theme-muted">github.com/jahid-cuet</p>
                   </div>
                 </a>
 
@@ -228,8 +227,7 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col gap-4 border-t theme-border pt-6 text-xs theme-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {portfolioData.personal.name}. All rights reserved.</p>
-          <p>Built with Next.js & Tailwind CSS</p>
+          <p>© {new Date().getFullYear()} {portfolioData.personal.name} - All rights reserved.</p>
         </div>
       </div>
     </section>

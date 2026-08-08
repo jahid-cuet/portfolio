@@ -10,7 +10,7 @@ import { ArrowRightIcon } from "./Icons";
 function UnifiedAIHealthBackground() {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden opacity-30 sm:opacity-40">
-      <svg viewBox="0 0 1000 300" className="w-[180%] min-w-[1200px] max-w-[2500px] h-auto translate-y-32 sm:translate-y-40 md:translate-y-48 lg:translate-y-56">
+      <svg viewBox="0 0 1000 300" className="w-full sm:w-[150%] md:w-[180%] min-w-[320px] sm:min-w-[900px] md:min-w-[1200px] max-w-[2500px] h-auto translate-y-20 sm:translate-y-32 md:translate-y-40 lg:translate-y-56">
         <defs>
           <filter id="superGlow">
             <feGaussianBlur stdDeviation="3" result="blur" />
@@ -65,8 +65,8 @@ function SideNeuralNetwork() {
   for (let i = 3; i < 7; i++) for (let j = 7; j < 9; j++) connections.push([i, j]);
 
   return (
-    <div className="absolute left-[-20px] md:left-[10px] lg:left-[40px] xl:left-[80px] top-[15%] md:top-[25%] hidden sm:block pointer-events-none opacity-80 z-0">
-      <svg width="200" height="240" viewBox="0 0 200 240">
+    <div className="absolute left-[-10px] sm:left-[-20px] md:left-[10px] lg:left-[40px] xl:left-[80px] top-[10%] sm:top-[15%] md:top-[25%] block pointer-events-none opacity-60 sm:opacity-80 z-0">
+      <svg width="120" height="150" viewBox="0 0 200 240" className="sm:w-[160px] sm:h-[200px] md:w-[200px] md:h-[240px]">
         <defs>
           <filter id="glowNN">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -102,8 +102,8 @@ function SideDataFlow() {
   ];
 
   return (
-    <div className="absolute right-[-20px] md:right-[10px] lg:right-[40px] xl:right-[80px] top-[15%] md:top-[25%] hidden sm:block pointer-events-none opacity-90 z-0">
-      <svg width="220" height="240" viewBox="0 0 220 240">
+    <div className="absolute right-[-10px] sm:right-[-20px] md:right-[10px] lg:right-[40px] xl:right-[80px] top-[10%] sm:top-[15%] md:top-[25%] block pointer-events-none opacity-60 sm:opacity-90 z-0">
+      <svg width="130" height="150" viewBox="0 0 220 240" className="sm:w-[175px] sm:h-[200px] md:w-[220px] md:h-[240px]">
         <defs>
           <filter id="glowFlow">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
