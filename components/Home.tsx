@@ -65,8 +65,11 @@ function SideNeuralNetwork() {
   for (let i = 3; i < 7; i++) for (let j = 7; j < 9; j++) connections.push([i, j]);
 
   return (
-    <div className="absolute left-[-10px] sm:left-[-20px] md:left-[10px] lg:left-[40px] xl:left-[80px] top-[10%] sm:top-[15%] md:top-[25%] block pointer-events-none opacity-60 sm:opacity-80 z-0">
-      <svg width="120" height="150" viewBox="0 0 200 240" className="sm:w-[160px] sm:h-[200px] md:w-[200px] md:h-[240px]">
+    <div className="hidden xl:flex absolute left-0 xl:left-8 2xl:left-16 top-1/2 -translate-y-1/2 pointer-events-none opacity-70 z-0 items-center">
+      <svg
+        viewBox="0 0 200 240"
+        className="w-[120px] h-[144px] lg:w-[160px] lg:h-[192px] xl:w-[200px] xl:h-[240px]"
+      >
         <defs>
           <filter id="glowNN">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -102,8 +105,8 @@ function SideDataFlow() {
   ];
 
   return (
-    <div className="absolute right-[-10px] sm:right-[-20px] md:right-[10px] lg:right-[40px] xl:right-[80px] top-[10%] sm:top-[15%] md:top-[25%] block pointer-events-none opacity-60 sm:opacity-90 z-0">
-      <svg width="130" height="150" viewBox="0 0 220 240" className="sm:w-[175px] sm:h-[200px] md:w-[220px] md:h-[240px]">
+    <div className="hidden xl:flex absolute right-0 xl:right-8 2xl:right-16 top-1/2 -translate-y-1/2 pointer-events-none opacity-80 z-0 items-center">
+      <svg viewBox="0 0 220 240" className="w-[130px] h-[142px] lg:w-[175px] lg:h-[191px] xl:w-[220px] xl:h-[240px]">
         <defs>
           <filter id="glowFlow">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -264,17 +267,17 @@ export default function HomeSection() {
       {/* ── UNIFIED BACKGROUND VISUAL ── */}
       <UnifiedAIHealthBackground />
 
-      {/* Left Side: Neural Network */}
+      {/* Left Side: Neural Network — only on xl+ so it never overlaps content */}
       <SideNeuralNetwork />
 
-      {/* Right Side: Data Flow */}
+      {/* Right Side: Data Flow — only on xl+ so it never overlaps content */}
       <SideDataFlow />
 
-      {/* ── FOREGROUND CONTENT (Beautifully proportioned & centered, moved up) ── */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-16 flex flex-col items-center text-center justify-start min-h-full -mt-20 sm:-mt-28 md:-mt-32 lg:-mt-40">
+      {/* ── FOREGROUND CONTENT ── */}
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 xl:px-8 flex items-center justify-center min-h-[calc(100vh-4rem)] pb-24 sm:pb-32 md:pb-40">
 
-        {/* Content Wrapper */}
-        <div className="relative space-y-4 sm:space-y-5 flex flex-col items-center z-10">
+        {/* Content Wrapper — vertically & horizontally centered */}
+        <div className="w-full space-y-5 sm:space-y-6 flex flex-col items-center text-center">
 
           {/* Role badge */}
           <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
@@ -294,13 +297,13 @@ export default function HomeSection() {
           {/* Accent line */}
           <div className="h-0.5 w-12 sm:w-16 rounded-full bg-[#34d399]" />
 
-          {/* Name heading (Appropriately sized) */}
+          {/* Name heading */}
           <h1 className="leading-tight flex flex-col items-center space-y-1">
             <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
               Hi, I&apos;m
             </span>
             <span
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight block"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight block"
               style={{
                 color: "#34d399",
                 textShadow: "0 0 50px rgba(52,211,153,0.3)",
@@ -311,12 +314,12 @@ export default function HomeSection() {
           </h1>
 
           {/* Description */}
-          <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto font-medium opacity-90 pt-1">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl sm:max-w-2xl mx-auto font-medium opacity-90">
             Bridging biomedical science, artificial intelligence and software engineering to
             build intelligent, real-world solutions that improve healthcare and human lives.
           </p>
 
-          {/* CTAs */}
+
 
         </div>
       </div>

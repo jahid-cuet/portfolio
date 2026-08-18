@@ -7,7 +7,7 @@ export default function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative overflow-hidden rounded-[2rem] theme-panel-strong aspect-[4/3] sm:aspect-[4/3] md:aspect-[3/2] lg:aspect-auto lg:min-h-[680px]">
           <Image
-            src="/jahid.jpeg"
+            src="/jahid.png"
             alt="Md Jahid Hasan portrait"
             fill
             priority
@@ -25,7 +25,7 @@ export default function About() {
             <p>{portfolioData.personal.tagline}</p>
             <p>{portfolioData.personal.about}</p>
             <p>
-Combined with a strong foundation in machine learning, deep learning (PyTorch, CNNs), and data analysis, I am passionate about building intelligent systems that optimize clinical workflows and improve patient care.
+              Combined with a strong foundation in machine learning, deep learning (PyTorch, CNNs), and data analysis, I am passionate about building intelligent systems that optimize clinical workflows and improve patient care.
             </p>
           </div>
 
