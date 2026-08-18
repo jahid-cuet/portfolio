@@ -6,7 +6,7 @@ export const portfolioData = {
     tagline:
       "Bridging biomedical science, AI and software engineering to build intelligent, real-world solutions.",
     about:
-      "Biomedical Engineering graduate from CUET and Software Engineer with 1+ years of experience building robust web applications, RESTful APIs, and e-governance platforms using Laravel, Django, and React.",
+      "Biomedical Engineering graduate from CUET and Full-Stack Software Engineer with over a year of hands-on experience designing and delivering reliable, high-impact digital solutions. Brings a sharp analytical mindset to software architecture, translating complex technical challenges into clean, scalable applications.",
     email: "jahidhasan5803733@gmail.com",
     phone: "+8801740578486",
     location: "Dhaka, Bangladesh",

@@ -72,10 +72,11 @@ export default function Navbar() {
     <>
       <header className="sticky top-0 z-50 border-b theme-panel">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
           {/* Logo */}
-          <Link href="#home" className="font-bold text-lg tracking-tight theme-text" onClick={handleLinkClick}>
-            {firstName}
-            <span className="theme-accent">.dev</span>
+          <Link href="#home" className="font-bold text-base sm:text-lg tracking-tight theme-text hover:opacity-80 transition-opacity" onClick={handleLinkClick}>
+            Md Jahid{" "}
+            <span className="theme-accent">Hasan</span>
           </Link>
 
           {/* Desktop nav */}
