@@ -148,6 +148,14 @@ export const portfolioData = {
       github: "https://github.com/jahid-cuet/movie-recomemder-system",
       live: "#",
     },
+    {
+      title: "Library Management System",
+      description:
+        "Built a comprehensive Library Management System using Django, featuring book inventory tracking, user lending capabilities, and an intuitive interface for efficient library operations.",
+      tech: ["Django", "Python", "SQLite", "Bootstrap"],
+      github: "#",
+      live: "https://library-management-system-nlr7.onrender.com/",
+    },
   ],
   skills: [
     {

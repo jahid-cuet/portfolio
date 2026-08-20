@@ -19,8 +19,12 @@ export default function Projects() {
                 <div className="flex items-center justify-between">
                   <h4 className="text-xl font-semibold theme-text group-hover:text-[color:var(--accent)] transition-colors">{project.title}</h4>
                   <div className="flex items-center gap-2">
-                    <a href={project.github} className="theme-muted hover:text-[color:var(--foreground)] transition-colors"><GithubIcon size={18} /></a>
-                    <a href={project.live} className="theme-muted hover:text-[color:var(--foreground)] transition-colors"><ExternalLinkIcon size={18} /></a>
+                    {project.github && project.github !== "#" && (
+                      <a href={project.github} className="theme-muted hover:text-[color:var(--foreground)] transition-colors" target="_blank" rel="noopener noreferrer"><GithubIcon size={18} /></a>
+                    )}
+                    {project.live && project.live !== "#" && (
+                      <a href={project.live} className="theme-muted hover:text-[color:var(--foreground)] transition-colors" target="_blank" rel="noopener noreferrer"><ExternalLinkIcon size={18} /></a>
+                    )}
                   </div>
                 </div>
                 <p className="theme-muted text-sm leading-relaxed">{project.description}</p>
