@@ -109,27 +109,43 @@ export const portfolioData = {
   ],
   projects: [
     {
-      title: "Municipal E-Governance Suite",
+      title: "E-Commerce Management System",
       description:
-        "A comprehensive suite of digital municipal applications handling market allocations, trade licenses, tax assessments, and digital certificates.",
+        "Developed a full-stack E-Commerce platform with product management, shopping cart, and secure payment gateway integration to enhance online retail operations.",
       tech: ["Laravel", "Vue.js", "Tailwind CSS", "MySQL"],
-      github: "#",
+      github: "https://github.com/jahid-cuet/Ecommerce-Project-in-Laravel",
       live: "#",
     },
     {
-      title: "Q-Nexus Local AI Chatbot",
+      title: "Dining Management System",
       description:
-        "An interactive local AI application powered by Qwen models via Ollama featuring custom streaming fetch parsers.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Ollama"],
-      github: "#",
+        "Developed a Dining Management System with meal tracking, billing, and payment integration to streamline dining operations by using Laravel.",
+      tech: ["Laravel", "PHP", "MySQL", "Tailwind CSS"],
+      github: "https://github.com/jahid-cuet/laravel-dinning-management",
       live: "#",
     },
     {
-      title: "NLP Text Preprocessing Pipeline",
+      title: "Interactive Quiz Application",
       description:
-        "An open-source data preprocessing library utilizing Python and movie review datasets for text tokenization and pipeline cleaning.",
-      tech: ["Python", "NLP", "Pandas", "GitHub"],
-      github: "#",
+        "Engineered an interactive, high-performance quiz application utilizing React and Vite, featuring a seamless, responsive user interface and dynamic state management for an optimized user experience.",
+      tech: ["React", "Vite", "JavaScript", "Tailwind CSS"],
+      github: "https://github.com/jahid-cuet/react-quiz-application",
+      live: "#",
+    },
+    {
+      title: "Exploratory Data Analysis (EDA)",
+      description:
+        "Conducted in-depth Exploratory Data Analysis (EDA) leveraging Python and data visualization libraries to extract actionable insights and identify underlying patterns in complex datasets.",
+      tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
+      github: "https://github.com/jahid-cuet/exploratory_data_analysis",
+      live: "#",
+    },
+    {
+      title: "Movie Recommender System",
+      description:
+        "Developed a personalized Movie Recommender System utilizing machine learning algorithms and natural language processing to suggest relevant films based on user preferences and content similarity.",
+      tech: ["Python", "Scikit-learn", "Pandas", "NLP"],
+      github: "https://github.com/jahid-cuet/movie-recomemder-system",
       live: "#",
     },
   ],

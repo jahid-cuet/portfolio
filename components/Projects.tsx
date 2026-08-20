@@ -11,7 +11,6 @@ export default function Projects() {
             <h2 className="text-xs uppercase tracking-widest theme-accent font-semibold mb-2">Portfolio</h2>
             <h3 className="text-3xl font-bold theme-text tracking-tight">Featured Projects</h3>
           </div>
-          <p className="theme-muted text-sm max-w-sm">A selection of enterprise applications, local AI configurations, and open-source tools.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioData.projects.map((project, index) => (
